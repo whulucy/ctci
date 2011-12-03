@@ -8,45 +8,47 @@ public class Question {
 	static int [] stackPointer = {-1, -1, -1};
 	public static void main(String [] args) throws Exception  {
 		push(2, 4);
-		System.out.println(peek(2));
+		System.out.println("Peek 2: " + peek(2));
 		push(0, 3);
 		push(0, 7);
 		push(0, 5);
-		System.out.println(peek(0));
-		pop(2);
-		System.out.println(peek(0));
+		System.out.println("Peek 0: " + peek(0));
 		pop(0);
+		System.out.println("Peek 0: " + peek(0));
+		pop(0);
+		System.out.println("Peek 0: " + peek(0));
 	}
 
 	static void push(int stackNum, int value) throws Exception {
-		/* Check that we have space */
-		if (stackPointer[stackNum] >= stackSize) {
+		/* Check that we have space for the next element */
+		if (stackPointer[stackNum] + 1 >= stackSize) { 
 			throw new Exception("Out of space.");
 		}
-		/* Find the index of the top element in the array 
-		 * and increment the stack pointer */		
-		int index = stackNum * stackSize + stackPointer[stackNum] + 1;
+		/* Increment stack pointer and then update top value*/		
 		stackPointer[stackNum]++;
-		buffer[index] = value;	
+		buffer[absTopOfStack(stackNum)] = value;	
 	}
 
 	static int pop(int stackNum) throws Exception {
 		if (stackPointer[stackNum] == -1) {
 			throw new Exception("Trying to pop an empty stack.");
 		}
-		int index = stackNum * stackSize + stackPointer[stackNum];
-		stackPointer[stackNum]--;
-		int value = buffer[index];
-		buffer[index] = 0;
+		int value = buffer[absTopOfStack(stackNum)]; // Get top
+		buffer[absTopOfStack(stackNum)] = 0; // Clear index
+		stackPointer[stackNum]--; // Decrement pointer
 		return value;
 	}
 
 	static int peek(int stackNum) {
-		int index = stackNum * stackSize + stackPointer[stackNum];
-		return buffer[index];
+		return buffer[absTopOfStack(stackNum)];
 	}
 
 	static boolean isEmpty(int stackNum) {
-		return stackPointer[stackNum] == 0;
+		return stackPointer[stackNum] == -1;
 	}
+	
+	/* returns index of the top of the stack "stackNum", in absolute terms */
+	static int absTopOfStack(int stackNum) {
+		return stackNum * stackSize + stackPointer[stackNum];
+	}	
 }
