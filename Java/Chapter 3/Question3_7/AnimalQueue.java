@@ -19,9 +19,9 @@ public class AnimalQueue {
 	
 	public Animal dequeueAny() {
 		if (dogs.size() == 0) {
-			return cats.poll();
+			return dequeueCats();
 		} else if (cats.size() == 0) {
-			return dogs.poll();
+			return dequeueDogs();
 		}
 		Dog dog = dogs.peek();
 		Cat cat = cats.peek();
@@ -52,7 +52,7 @@ public class AnimalQueue {
 	}
 	
 	public Dog dequeueDogs() {
-		return dogs.getFirst();
+		return dogs.poll();
 	}
 	
 	public Dog peekDogs() {
@@ -60,7 +60,7 @@ public class AnimalQueue {
 	}
 	
 	public Cat dequeueCats() {
-		return cats.getFirst();
+		return cats.poll();
 	}
 	
 	public Cat peekCats() {
