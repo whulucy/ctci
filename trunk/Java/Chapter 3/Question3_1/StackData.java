@@ -12,19 +12,15 @@ public class StackData {
 	}
 	
 	public boolean isWithinStack(int index, int total_size) {
-		if (start + capacity <= total_size) { // normal case
-			if (start <= index && index < start + capacity) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			int shifted_index = index + total_size;
-			if (start <= shifted_index && shifted_index < start + capacity) {
-				return true;
-			} else {
-				return false;
-			}			
+		// Note: if stack wraps, the head (right side) wraps around to the left. 
+		if (start <= index && index < start + capacity) { 
+			// non-wrapping, or "head" (right side) of wrapping case
+			return true;
+		} else if (start + capacity > total_size && 
+				   index < (start + capacity) % total_size) {
+			// tail (left side) of wrapping case
+			return true;
 		}
+		return false;
 	}
 }
