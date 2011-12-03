@@ -4,7 +4,7 @@ import CtCILibrary.AssortedMethods;
 
 public class QuestionB {
 	static int number_of_stacks = 3;
-	static int default_size = 3;
+	static int default_size = 4;
 	static int total_size = default_size * number_of_stacks;
 	static StackData [] stacks = {new StackData(0, default_size), 
 									 new StackData(default_size, default_size), 
@@ -12,23 +12,31 @@ public class QuestionB {
 	static int [] buffer = new int [total_size];
 
 	public static void main(String [] args) throws Exception  {
-		/*push(0, 10);
+		push(0, 10);
 		push(1, 20);
 		push(2, 30);
-		push(1, 22);
-		push(0, 16);
-		push(0, 17);
+		
+		push(1, 21);
+		push(0, 11);
+		push(0, 12);
+		
 		pop(0);
+		
 		push(2, 31);
-		*/
-		push(0, 0);
-		push(1, 10);
-		push(2, 20);
-		push(2, 21);
-		push(2, 22);
-		push(2, 23);
-		StackData stack = stacks[2];
-		System.out.println(stack.isWithinStack(0, 2));
+		
+		push(0, 13);
+		push(1, 22);
+		
+		push(2, 31);
+		push(2, 32);
+		push(2, 33);
+		push(2, 34);
+
+		System.out.println("Final Stack: " + AssortedMethods.arrayToString(buffer));
+		
+		pop(1);
+		push(2, 35);
+		
 		System.out.println("Final Stack: " + AssortedMethods.arrayToString(buffer));
 	}
 	
