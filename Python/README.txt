@@ -1,0 +1,1 @@
+Although CareerCup has no plans to issue a Python version of the book, we would like to offer Python versions of the solutions. If you're writing Python solutions, and would like to contribute your own, please email us - gayle@careercup.com.

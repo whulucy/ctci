@@ -1,0 +1,1 @@
+Although CareerCup has no plans to issue a C++ version of the book, we would like to offer C++ versions of the solutions. If you're writing C++ solutions, and would like to contribute your own, please email us - gayle@careercup.com.
