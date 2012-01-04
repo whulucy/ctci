@@ -31,7 +31,7 @@ public class Question {
 		// Set start and end of line
 		if ((x1 / 8) == (x2 / 8)) { // If x1 and x2 are in the same byte
 			byte mask = (byte) (start_mask & end_mask);
-			screen[(width / 8) * y + first_full_byte - 1] |= mask;
+			screen[(width / 8) * y + (x1 / 8)] |= mask;
 		} else {
 			if (start_offset != 0) {
 				int byte_number = (width / 8) * y + first_full_byte - 1;
@@ -67,7 +67,7 @@ public class Question {
 		byte[] screen = new byte[width * height / 8];
 		//screen[1] = 13;
 		
-		drawLine(screen, width, 13, 27, 2);
+		drawLine(screen, width, 8, 10, 2);
 
 		printScreen(screen, width);
 	}
