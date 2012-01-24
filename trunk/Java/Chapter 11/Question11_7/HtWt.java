@@ -1,4 +1,4 @@
-package Question10_7;
+package Question11_7;
 
 public class HtWt implements Comparable {
 	private int Ht;
