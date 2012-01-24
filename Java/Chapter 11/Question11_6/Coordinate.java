@@ -1,4 +1,4 @@
-package Question10_6;
+package Question11_6;
 
 public class Coordinate implements Cloneable {
 	public int row;

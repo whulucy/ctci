@@ -1,4 +1,4 @@
-package Question10_6;
+package Question11_6;
 import CtCILibrary.*;
 
 public class QuestionA {

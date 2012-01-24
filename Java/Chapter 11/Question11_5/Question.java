@@ -1,4 +1,4 @@
-package Question10_5;
+package Question11_5;
 
 public class Question {
 	public static int searchI(String[] strings, String str, int first, int last) {
