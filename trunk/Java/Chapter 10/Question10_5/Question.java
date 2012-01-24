@@ -38,6 +38,10 @@ public class Question {
 	}	
 	
 	public static int searchR(String[] strings, String str, int first, int last) {
+		if (first > last) {
+			return -1;
+		}
+		
 		/* Move mid to the middle */
 		int mid = (last + first) / 2;
 		
@@ -79,9 +83,11 @@ public class Question {
 	
 	public static void main(String[] args) {
         String[] stringList = {"apple", "", "", "banana", "", "", "", "carrot", "duck", "", "", "eel", "", "flower"};
-		for (String s : stringList) {
-			String cloned = new String(s);
-        	System.out.println("<" + cloned + "> " + " appears at location " + search(stringList, cloned));
-		}
+        System.out.println(search(stringList, "ac"));
+        
+		//for (String s : stringList) {
+		//	String cloned = new String(s);
+        //	System.out.println("<" + cloned + "> " + " appears at location " + search(stringList, cloned));
+		//}
 	}
 }
