@@ -35,7 +35,7 @@ public class Question {
 		binary.append(".");
 		while (num > 0) {
 			/* Setting a limit on length: 32 characters */
-			if (binary.length() > 32) {
+			if (binary.length() >= 32) {
 				return "ERROR";
 			}
 			if (num >= frac) {

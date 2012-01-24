@@ -46,7 +46,7 @@ public class Question {
 		longestIncreasingSubsequence(array, solutions, 0);
 		
 		ArrayList<HtWt> best_sequence = null;
-		for (int i = 1; i < array.size(); i++) {
+		for (int i = 0; i < array.size(); i++) {
 			best_sequence = seqWithMaxLength(best_sequence, solutions[i]);
 		}
 		
