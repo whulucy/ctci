@@ -2,7 +2,7 @@ package Question1_5;
 
 public class Question {
 
-	public static int setChar(String str, char[] array, char c, int index, int count) {
+	public static int setChar(char[] array, char c, int index, int count) {
 		array[index] = c;
 		index++;
 		char[] cnt = String.valueOf(count).toCharArray();
@@ -86,12 +86,12 @@ public class Question {
 			if (str.charAt(i) == last) {
 				count++;
 			} else {
-				index = setChar(str, array, last, index, count);
+				index = setChar(array, last, index, count);
 				last = str.charAt(i);
 				count = 1;
 			}
 		}
-		index = setChar(str, array, last, index, count);
+		index = setChar(array, last, index, count);
 		return String.valueOf(array);
 	}
 	

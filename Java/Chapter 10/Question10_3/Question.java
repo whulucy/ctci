@@ -7,10 +7,11 @@ import java.util.Scanner;
 
 public class Question {
 
-	static byte[] bitfield2 = new byte [0xFFFFFFF/8];
+	static long numberOfInts = ((long) Integer.MAX_VALUE) + 1;
+	static byte[] bitfield2 = new byte [(int) (numberOfInts / 8)];
 	
 	public static void findOpenNumber2() throws FileNotFoundException {
-		Scanner in = new Scanner(new FileReader("input_file_q11_4.txt"));
+		Scanner in = new Scanner(new FileReader("Chapter 10/Question10_3/input_file_q10_3.txt"));
 		while (in.hasNextInt()) {
 			int n = in.nextInt ();
 			/* Finds the corresponding number in the bitfield by using the 
@@ -38,7 +39,7 @@ public class Question {
 	
 	public static void findOpenNumber() throws FileNotFoundException {
 		int starting = -1;
-		Scanner in = new Scanner (new FileReader ("input_file_q11_4.txt"));
+		Scanner in = new Scanner (new FileReader ("Chapter 10/Question10_3/input_file_q10_3.txt"));
 		while (in.hasNextInt()) {
 		    int n = in.nextInt();
 		    blocks[n / (bitfield.length * 8)]++;
@@ -53,7 +54,7 @@ public class Question {
 			}
 		}
 
-		in = new Scanner(new FileReader("input_file_q11_4.txt"));
+		in = new Scanner(new FileReader("Chapter 10/Question10_3/input_file_q10_3.txt"));
 		while (in.hasNextInt()) {
 		    int n = in.nextInt();
 		    /* If the number is inside the block that’s missing numbers,

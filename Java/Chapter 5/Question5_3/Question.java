@@ -149,7 +149,7 @@ public class Question {
 		int temp = n;
 		int c0 = 0;
 		int c1 = 0;
-		while (((temp & 1) == 1) && (temp != 0)) {
+		while ((temp & 1) == 1) {
 			c1++;
 			temp >>= 1;
 		}
@@ -161,7 +161,7 @@ public class Question {
 			return -1;
 		}
 		
-		while ((temp & 1) == 0 && (temp != 0)) {
+		while (((temp & 1) == 0) && (temp != 0)) {
 			c0++;
 			temp >>= 1;
 		}
