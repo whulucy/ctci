@@ -38,7 +38,9 @@ public class QuestionR {
 	
 	public static void main(String[] args) {
 		maze = AssortedMethods.randomMatrix(10, 10, 0, 4);
+		
 		AssortedMethods.printMatrix(maze);
+		
 		ArrayList<Point> path = new ArrayList<Point>();
 		boolean success = getPath(9, 9, path);
 		if (success) {

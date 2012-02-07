@@ -68,6 +68,9 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
+		int q = multiply(-5, -10);
+		System.out.println(q);
+		
 		for (int i = 0; i < 100; i++) {
 			int a = randomInt(10);
 			int b = randomInt(10);

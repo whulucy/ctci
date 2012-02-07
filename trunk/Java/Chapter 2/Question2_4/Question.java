@@ -44,25 +44,19 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
-		int length = 20;
-		LinkedListNode[] nodes = new LinkedListNode[length];
-		for (int i = 0; i < length; i++) {
-			nodes[i] = new LinkedListNode(i >= length / 2 ? length - i - 1 : i, null, null);
+		/* Create linked list */
+		int[] vals = {1, 3, 7, 5, 2, 9, 4};
+		LinkedListNode head = new LinkedListNode(vals[0], null, null);
+		LinkedListNode current = head;
+		for (int i = 1; i < vals.length; i++) {
+			current = new LinkedListNode(vals[i], null, current);
 		}
-		
-		for (int i = 0; i < length; i++) {
-			if (i < length - 1) {
-				nodes[i].setNext(nodes[i + 1]);
-			}
-			if (i > 0) {
-				nodes[i].setPrevious(nodes[i - 1]);
-			}
-		}
-		
-		LinkedListNode head = nodes[0];
 		System.out.println(head.printForward());
 		
-		LinkedListNode h = partition(head, 7);
+		/* Partition */
+		LinkedListNode h = partition(head, 5);
+		
+		/* Print Result */
 		System.out.println(h.printForward());
 	}
 
