@@ -21,8 +21,6 @@ public class Question {
 		}
 	}
 	
-	public static int count = 0;
-	
 	public static void deleteDupsC(LinkedListNode head) {
 		if (head == null) return;
 		LinkedListNode previous = head;
@@ -41,7 +39,6 @@ public class Question {
 					 * earlier. */
 				    break;
 				}
-				count++;
 				runner = runner.next;
 			}
 			
@@ -53,12 +50,10 @@ public class Question {
 			 * already been incremented.*/
 			if (runner == current) {
 				previous = current;
-				count++;
 		        current = current.next;
 			}
 		}
 	}
-	public static int count2 = 0;
 	
 	public static void deleteDupsB(LinkedListNode head) {
 		if (head == null) return;
@@ -68,24 +63,18 @@ public class Question {
 			/* Remove all future nodes that have the same value */
 			LinkedListNode runner = current;
 			while (runner.next != null) { 
-				
 				if (runner.next.data == current.data) {
-					count2++;
 					runner.next = runner.next.next;
 				} else {
 					runner = runner.next;
 				}
 			}
-			count2++;
 			current = current.next;
 		}
 	}	
 	
 	public static void main(String[] args) {
 		LinkedListNode head = AssortedMethods.randomLinkedList(1000, 0, 2);
-	//	System.out.println(head.printForward());
 		deleteDupsC(head);
-		//System.out.println(head.printForward());
-		System.out.println(count);
 	}
 }
