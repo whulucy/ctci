@@ -7,7 +7,7 @@ public class QuestionB {
 		if (n == null) {
 			return true;
 		}
-		if (n.data <= min || n.data > max) {
+		if (n.data < min || n.data >= max) {
 			return false;
 		}
 		if (!checkBST(n.left, min, n.data) ||
@@ -22,9 +22,9 @@ public class QuestionB {
 	}
 
 	public static void main(String[] args) {
-		int[] array = {3, 5, 7, 10, 13, 15, 20};
+		int[] array = {3, 5, 5, 10, 13, 15, 20};
 		TreeNode node = TreeNode.createMinimalBST(array);
-		node.left.right.data = 3;
+		//node.left.right.data = 3;
 		System.out.println(checkBST(node));
 	}
 }
