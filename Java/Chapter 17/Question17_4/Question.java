@@ -21,7 +21,7 @@ public class Question {
 		int c = a - b;
 		
 		int sa = sign(a); // if a >= 0, then 1 else 0
-		int sb = sign(b); // if a >= 1, then 1 else 0
+		int sb = sign(b); // if b >= 1, then 1 else 0
 		int sc = sign(c); // depends on whether or not a - b overflows
 		
 		/* We want to define a value k which is 1 if a > b and 0 if a < b. 

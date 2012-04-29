@@ -24,7 +24,7 @@ public class Question {
 	
 	public static int shrinkLeft(int[] array, int min_index, int start) {
 		int comp = array[min_index];
-		for (int i = start - 2; i >= 0; i--) {
+		for (int i = start - 1; i >= 0; i--) {
 			if (array[i] <= comp) {
 				return i + 1;
 			}
@@ -100,11 +100,8 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
-		int[] array2 = {7, 10, 10, 12, 5, 20, 23, 24};
-		for (int i = 0; i < 100; i++) {
-			int[] array = AssortedMethods.randomArray(5, -10, 10);
-			findUnsortedSequence(array);
-		}
+		int[] array = {1, 2, 3, 4, 5, 11, 7, 12, 6, 7, 16, 18, 19};
+		findUnsortedSequence(array);
 	}
 
 }
