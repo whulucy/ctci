@@ -20,9 +20,10 @@ public class QuestionA {
 				for (int i = 0; i < str.length(); i++) {
 					if (str.charAt(i) == '(') {
 						String s = insertInside(str, i);
-						if (!set.contains(s)) {
-							set.add(s);
-						}					
+						/* Add s to set if it’s not already in there. Note: 	
+						 * HashSet automatically checks for duplicates before
+						 * adding, so an explicit check is not necessary. */
+						set.add(s);					
 					}
 				}
 				if (!set.contains("()" + str)) {

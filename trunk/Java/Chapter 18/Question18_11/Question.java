@@ -41,17 +41,17 @@ public class Question {
 			if (matrix[row][col+j] == 1) {
 				return false;
 			}
-			if (matrix[row+size-1][col+j] == 1){
+			if (matrix[row+size-1][col+j] == 1) {
 				return false;
 			}
 		}
 		
 		// Check left and right border.
-		for (int i = 1; i < size - 1; i++){
+		for (int i = 1; i < size - 1; i++) {
 			if (matrix[row+i][col] == 1){
 				return false;
 			}
-			if (matrix[row+i][col+size-1] == 1){
+			if (matrix[row+i][col+size-1] == 1) {
 				return false;
 			}
 		}

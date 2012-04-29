@@ -2,6 +2,7 @@ package Question8_2;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /* CallHandler is implement as a singleton class. It represents the body of the program,
@@ -23,31 +24,31 @@ public class CallHandler {
      * employeeLevels[1] = managers
      * employeeLevels[2] = directors
      */
-    ArrayList<Employee>[] employeeLevels;
+    List<List<Employee>> employeeLevels;
 
 	/* queues for each call’s rank */
-    Queue<Call>[] callQueues; 
+    List<List<Call>> callQueues; 
 
-    public CallHandler() {
-    	employeeLevels = new ArrayList[LEVELS];
-    	callQueues = new LinkedList[LEVELS]; 
+    protected CallHandler() {
+    	employeeLevels = new ArrayList<List<Employee>>(LEVELS);
+    	callQueues = new ArrayList<List<Call>>(LEVELS); 
     	
         // Create respondents.
         ArrayList<Employee> respondents = new ArrayList<Employee>(NUM_RESPONDENTS);
         for (int k = 0; k < NUM_RESPONDENTS - 1; k++) {
             respondents.add(new Respondent());
         }
-        employeeLevels[0] = respondents;
+        employeeLevels.add(respondents);
 
         // Create managers.
         ArrayList<Employee> managers = new ArrayList<Employee>(NUM_MANAGERS);
         managers.add(new Manager());
-        employeeLevels[1] = managers;
+        employeeLevels.add(managers);
 
         // Create directors.
         ArrayList<Employee> directors = new ArrayList<Employee>(NUM_DIRECTORS);
         directors.add(new Director());
-        employeeLevels[2] = directors;
+        employeeLevels.add(directors);
     }
     
     /* Get instance of singleton class. */
@@ -61,7 +62,7 @@ public class CallHandler {
     /* Gets the first available employee who can handle this call. */
     public Employee getHandlerForCall(Call call) {
         for (int level = call.getRank().getValue(); level < LEVELS - 1; level++) {
-            ArrayList<Employee> employeeLevel = employeeLevels[level];
+            List<Employee> employeeLevel = employeeLevels.get(level);
             for (Employee emp : employeeLevel) {
                 if (emp.isFree()) {
                     return emp;
@@ -87,7 +88,7 @@ public class CallHandler {
         } else {
 	        /* Place the call into corresponding call queue according to its rank. */
 	        call.reply("Please wait for free employee to reply");
-	        callQueues[call.getRank().getValue()].add(call);
+	        callQueues.get(call.getRank().getValue()).add(call);
         }
     }    
 
@@ -96,13 +97,15 @@ public class CallHandler {
     public boolean assignCall(Employee emp) {
         /* Check the queues, starting from the highest rank this employee can serve. */
         for (int rank = emp.getRank().getValue(); rank >= 0; rank--) {
-            Queue<Call> que = callQueues[rank];
+            List<Call> que = callQueues.get(rank);
             
             /* Remove the first call, if any */
-            Call call = que.poll(); 
-            if (call != null) {
-                emp.receiveCall(call);
-                return true;
+            if (que.size() > 0) {
+	            Call call = que.remove(0); 
+	            if (call != null) {
+	                emp.receiveCall(call);
+	                return true;
+	            }
             }
         }
         return false;
