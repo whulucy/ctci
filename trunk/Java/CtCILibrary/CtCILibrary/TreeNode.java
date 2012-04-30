@@ -97,4 +97,8 @@ public class TreeNode {
 	public static TreeNode createMinimalBST(int array[]) {
 		return createMinimalBST(array, 0, array.length - 1);
 	}
+	
+	public void print() {
+		BTreePrinter.printNode(this);
+	}
 } 
