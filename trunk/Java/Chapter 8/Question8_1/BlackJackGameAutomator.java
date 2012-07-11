@@ -21,8 +21,8 @@ public class BlackJackGameAutomator {
 			if (card1 == null || card2 == null) {
 				return false;
 			}
-			hand.addCard(deck.dealCard());
-			hand.addCard(deck.dealCard());	
+			hand.addCard(card1);
+			hand.addCard(card2);	
 		}
 		return true;
 	}
