@@ -896,9 +896,14 @@ public class Question {
 				"yesterday", 
 				"you", 
 				"young"};
-		ArrayList<String> list = new ArrayList<String>();
+		
+		return arr;
+		
+		/* To see performance on a larger array, comment / delete the above "return arr;" line and uncomment the below code.
+		 * This will create a giant array by concatenating words from the above list.*/
+		/*ArrayList<String> list = new ArrayList<String>();
 		for (int i = 0; i < arr.length; i++) {
-			int n = AssortedMethods.randomIntInRange(0, 10);
+			int n = AssortedMethods.randomIntInRange(0, 1000);
 			String s = arr[i];
 			for (int j = 0; j < n; j++) {
 				int index = AssortedMethods.randomIntInRange(0, i);
@@ -912,5 +917,6 @@ public class Question {
 			ar[i] = list.get(i);
 		}		
 		return ar;
+		*/
 	}
 }
