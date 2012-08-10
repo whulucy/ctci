@@ -7,4 +7,8 @@ public class GraphPoint {
 		x = x1;
 		y = y1;
 	}
+	
+	public String toString() {
+		return "(" + x + ", " + y + ")";
+	}
 }
