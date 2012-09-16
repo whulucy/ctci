@@ -22,7 +22,6 @@ public class QuestionDP {
 		if (cache.containsKey(p)) { // Already visited this cell
 			return cache.get(p);
 		}
-		path.add(p);
 		if (x == 0 && y == 0) {
 			return true; // found a path
 		}
@@ -33,15 +32,15 @@ public class QuestionDP {
 		if (!success && y >= 1 && isFree(x, y - 1)) { // Try down
 			success = getPath(x, y - 1, path, cache); // Free!  Go down
 		}
-		if (!success) {
-			path.remove(p); // Wrong way! Better stop going this way
+		if (success) {
+			path.add(p); // Right way! Add to path.
 		}
 		cache.put(p, success); // Cache result
 		return success;
 	}
 	
 	public static void main(String[] args) {
-		maze = AssortedMethods.randomMatrix(10, 10, 0, 4);
+		maze = AssortedMethods.randomMatrix(10, 10, 0, 5);
 		AssortedMethods.printMatrix(maze);
 		ArrayList<Point> path = new ArrayList<Point>();
 		Hashtable<Point, Boolean> cache = new Hashtable<Point, Boolean>();
