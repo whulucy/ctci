@@ -19,7 +19,6 @@ public class QuestionR {
 	
 	public static boolean getPath(int x, int y, ArrayList<Point> path) {
 		Point p = new Point(x, y);
-		path.add(p);
 		if (x == 0 && y == 0) {
 			return true; // found a path
 		}
@@ -30,8 +29,8 @@ public class QuestionR {
 		if (!success && y >= 1 && isFree(x, y - 1)) { // Try down
 			success = getPath(x, y - 1, path); // Free!  Go down
 		}
-		if (!success) {
-			path.remove(p); // Wrong way! Better stop going this way
+		if (success) {
+			path.add(p); // Right way! Add to path.
 		}
 		return success;
 	}
