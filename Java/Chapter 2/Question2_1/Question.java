@@ -6,6 +6,16 @@ import CtCILibrary.AssortedMethods;
 import CtCILibrary.LinkedListNode;
 
 public class Question {
+	public static int tapB = 0;
+	public static int tapC = 0;
+	
+	public static void tap(int i) {
+		if (i == 0) {
+			tapB++;
+		} else {
+			tapC++;
+		}
+	}
 
 	public static void deleteDupsA(LinkedListNode n) {
 		Hashtable table = new Hashtable();
@@ -29,7 +39,7 @@ public class Question {
 			// Look backwards for dups, and remove any that you see.
 			LinkedListNode runner = head;
 			while (runner != current) { 
-				
+				tap(1);
 				if (runner.data == current.data) {
 					LinkedListNode tmp = current.next;
 					previous.next = tmp;
@@ -63,6 +73,7 @@ public class Question {
 			/* Remove all future nodes that have the same value */
 			LinkedListNode runner = current;
 			while (runner.next != null) { 
+				tap(0);
 				if (runner.next.data == current.data) {
 					runner.next = runner.next.next;
 				} else {
@@ -73,8 +84,21 @@ public class Question {
 		}
 	}	
 	
-	public static void main(String[] args) {
-		LinkedListNode head = AssortedMethods.randomLinkedList(1000, 0, 2);
-		deleteDupsC(head);
+	public static void main(String[] args) {	
+		LinkedListNode first = new LinkedListNode(0, null, null); //AssortedMethods.randomLinkedList(1000, 0, 2);
+		LinkedListNode head = first;
+		LinkedListNode second = first;
+		for (int i = 1; i < 8; i++) {
+			second = new LinkedListNode(i % 2, null, null);
+			first.setNext(second);
+			second.setPrevious(first);
+			first = second;
+		}
+		System.out.println(head.printForward());
+		LinkedListNode clone = head.clone();
+		deleteDupsB(head);
+		deleteDupsC(clone);
+		System.out.println(tapB);
+		System.out.println(tapC);
 	}
 }
