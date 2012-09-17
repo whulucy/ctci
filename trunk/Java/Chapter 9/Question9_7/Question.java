@@ -50,6 +50,7 @@ public class Question {
 	}
 	
 	public static boolean PaintFill(Color[][] screen, int x, int y, Color ncolor) {
+		if (screen[y][x] == ncolor) return false;
 		return PaintFill(screen, x, y, screen[y][x], ncolor);
 	}
 	
