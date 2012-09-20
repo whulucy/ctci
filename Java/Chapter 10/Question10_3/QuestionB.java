@@ -1,10 +1,9 @@
-package Question12_3;
+package Question10_3;
 
 import java.io.*;
 import java.util.*;
 
 public class QuestionB {
-
 	public static int bitsize = 1048576; // 2^20 bits (2^17 bytes)
 	public static int blockNum = 4096; // 2^12
 	public static byte[] bitfield = new byte[bitsize/8];
@@ -12,7 +11,7 @@ public class QuestionB {
 		
 	public static void findOpenNumber() throws FileNotFoundException {
 		int starting = -1;
-		Scanner in = new Scanner (new FileReader ("input_file_q12_3.txt"));
+		Scanner in = new Scanner (new FileReader ("Chapter 10/Question10_3/input_file_q10_3.txt"));
 		while (in.hasNextInt()) {
 		    int n = in.nextInt();
 		    blocks[n / (bitfield.length * 8)]++;
@@ -27,7 +26,7 @@ public class QuestionB {
 			}
 		}
 
-		in = new Scanner(new FileReader("input_file_q12_3.txt"));
+		in = new Scanner(new FileReader("Chapter 10/Question10_3/input_file_q10_3.txt"));
 		while (in.hasNextInt()) {
 			int n = in.nextInt();
 			/* If the number is inside the block that’s missing 
