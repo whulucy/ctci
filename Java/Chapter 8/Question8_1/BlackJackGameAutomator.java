@@ -82,7 +82,7 @@ public class BlackJackGameAutomator {
 	
 	public void initializeDeck() {
 		ArrayList<BlackJackCard> cards = new ArrayList<BlackJackCard>();
-		for (int i = 1; i < 13; i++) {
+		for (int i = 1; i <= 13; i++) {
 			for (int j = 0; j <= 3; j++) {
 				Suit suit = Suit.getSuitFromValue(j);
 				BlackJackCard card = new BlackJackCard(i, suit);
