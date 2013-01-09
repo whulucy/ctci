@@ -1,8 +1,16 @@
 package Question9_8;
 
 public class Question {
+	public static int makeChange2(int n, int[] denoms, int k) {
+		if (k + 1 >= denoms.length) return 1;
+		int ways = 0;
+		for (int i = 0; i * denoms[k] <= n; i++) {
+			ways += makeChange2(n - i * denoms[k], denoms, k + 1);
+		}
+		return ways;
+	}	
+	
 	public static int makeChange(int n, int denom) {
-		System.out.println(n + " " + denom);
 		int next_denom = 0;
 		switch (denom) {
 		case 25:
@@ -25,7 +33,13 @@ public class Question {
 	}
 	
 	public static int makeChange(int n) {
-		return makeChange(n, 25);
+		int[] denoms = {25, 10, 5, 1};
+		int x = makeChange2(n, denoms, 0);
+		int y = makeChange(n, 25);
+		if (x != y) {
+			System.out.println("Error: " + x + " " + y);
+		}
+		return x;
 	}
 	
 	public static void main(String[] args) {
