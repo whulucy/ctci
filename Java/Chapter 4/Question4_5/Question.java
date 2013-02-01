@@ -15,7 +15,7 @@ public class Question {
 		}
 		
 		// Check current
-		if (n.data < last_printed) {
+		if (n.data <= last_printed) {
 			return false;
 		}
 		last_printed = n.data;
@@ -28,8 +28,9 @@ public class Question {
 	}
 
 	public static void main(String[] args) {
-		int[] array = {3, 5, 7, 10, 13, 15, 20};
+		int[] array = {3, 5, 7};
 		TreeNode node = TreeNode.createMinimalBST(array);
+		node.left.data = 5;
 		//node.left.right.data = 3;
 		System.out.println(checkBST(node));
 	}
