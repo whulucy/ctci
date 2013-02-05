@@ -12,7 +12,7 @@ public class Question {
 			}
 		}
 		index = length + spaceCount * 2;
-		//str[newLength] = '\0';
+		str[index] = '\0';
 		for (i = length - 1; i >= 0; i--) {
 			if (str[i] == ' ') {
 				str[index - 1] = '0';

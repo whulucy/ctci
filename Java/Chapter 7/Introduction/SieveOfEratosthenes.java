@@ -40,14 +40,14 @@ public class SieveOfEratosthenes {
 		return primes;
 	}
 	
-	public static int[] sieveOfEratosthenes(int max) {
+	public static boolean[] sieveOfEratosthenes(int max) {
         boolean[] flags = new boolean[max + 1];
         int count = 0;
         
 		init(flags);
         int prime = 2;
         
-        while (prime <= max) {
+        while (prime <= Math.sqrt(max)) {
         	count++;        	
         	crossOff(flags, prime);
         	prime = getNextPrime(flags, prime);
@@ -56,13 +56,15 @@ public class SieveOfEratosthenes {
         	}
         }
         
-        return prune(flags, count);
+        return flags; //prune(flags, count);
 	}
 	
 	public static void main(String[] args) {
-		int[] primes = sieveOfEratosthenes(100);
+		boolean[] primes = sieveOfEratosthenes(100);
 		for (int i = 0; i < primes.length; i++) {
-			System.out.println(primes[i]);
+			if (primes[i]) {
+				System.out.println(i);
+			}
 		}
 	}
 

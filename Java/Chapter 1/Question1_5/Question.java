@@ -14,6 +14,7 @@ public class Question {
 	}
 	
 	public static int countCompression(String str) {
+		if (str == null || str.isEmpty()) return 0;
 		char last = str.charAt(0);
 		int size = 0;
 		int count = 1;
@@ -99,6 +100,8 @@ public class Question {
 		String str = "abbccccccde";
 		int c = countCompression(str);
 		String str2 = compressAlternate(str);
+		String t = compressBetter("");
+		System.out.println("Compression: " + t);
 		System.out.println("Old String (len = " + str.length() + "): " + str);
 		System.out.println("New String (len = " + str2.length() + "): " + str2);
 		System.out.println("Potential Compression: " + c);
