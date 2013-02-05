@@ -12,14 +12,13 @@ public class Question {
 	/* pick M elements from original array.  Clone original array so that
 	 * we don’t destroy the input. */
 	public static int[] pickMRandomly(int[] original, int m) {
-		int[] subset = new int[m];
-		int[] array = original.clone();
-		for (int j = 0; j < m; j++) {
-			int index = rand(j, array.length - 1); 
-			subset[j] = array[index];
-			array[index] = array[j]; // array[j] is now “dead”
-		}
-		return subset;
+		for (int i = 0; i < original.length; i++) { 
+			int k = rand(0, i);
+			int temp = original[k];
+			original[k] = original[i];
+			original[i] = temp;
+		} 
+		return original;
 	}
 	
 	public static void main(String[] args) {
